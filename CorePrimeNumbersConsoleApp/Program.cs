@@ -45,7 +45,7 @@ namespace CorePrimeNumbersConsoleApp
             if (validMaxNumber)
             {
                 Console.ResetColor();
-                Console.Write("\nEnter a number M to factor into its prime components: ");
+                Console.Write("\n\nEnter a number M to factor into its prime components: ");
                 int numberToFactor = 0;
                 if (int.TryParse(Console.ReadLine(), out numberToFactor))
                 {
@@ -54,7 +54,7 @@ namespace CorePrimeNumbersConsoleApp
                         var primeFactorList = FactorByPrimes.FactorIntoPrimes(numberToFactor, ListOfPrimes);
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine($"\nThe number {numberToFactor} is the product of the following primes:");
+                        Console.WriteLine($"The number {numberToFactor} is the product of the following primes:");
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         for (int i = 0; i < primeFactorList.Count; i++)
                         {
