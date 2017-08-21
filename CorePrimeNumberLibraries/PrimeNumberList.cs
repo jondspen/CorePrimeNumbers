@@ -40,7 +40,7 @@ namespace CorePrimeNumberLibraries
                 }
 
                 //  for i = 2, 3, 4, ..., not exceeding √n:
-                for (int i = 2; i < Math.Sqrt(maxNumber); i++)
+                for (int i = 2; i <= Math.Sqrt(maxNumber); i++)
                 {
                     // if A[i] is true:
                     if (numberDictionary[i])
