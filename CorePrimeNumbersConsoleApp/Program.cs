@@ -52,10 +52,20 @@ namespace CorePrimeNumbersConsoleApp
                     if ((numberToFactor > 1) && (ListOfPrimes.Count > 0))
                     {
                         var primeFactorList = FactorByPrimes.FactorIntoPrimes(numberToFactor, ListOfPrimes);
-
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine($"The number {numberToFactor} is the product of the following primes:");
-                        Console.ForegroundColor = ConsoleColor.Magenta;
+
+                        if (primeFactorList[primeFactorList.Count - 1] < 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"***  The available primes from input {maxNumber} was not large enough to completely factor {numberToFactor}.  ***");
+                            primeFactorList[primeFactorList.Count - 1] = primeFactorList[primeFactorList.Count - 1] * -1;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                        }
+
                         for (int i = 0; i < primeFactorList.Count; i++)
                         {
                             Console.Write(primeFactorList[i].ToString() + " ");
@@ -64,7 +74,7 @@ namespace CorePrimeNumbersConsoleApp
                 }
             }
             Console.ResetColor();
-            Console.WriteLine("\nPress any key to exit...");
+            Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadKey(true);
         }
     }
